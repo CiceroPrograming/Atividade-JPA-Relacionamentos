@@ -7,6 +7,32 @@
     <title>Cadastro de Estudante</title>
 </head>
 <body>
+    <form method="post" action="/cadastroEstudante">
+        
+        <label>Nome</label>
+        <input type="text" name="nomeEstudante">
+        <p></p>
+
+        <label>Sobrenome</label>
+        <input type="text" name="sobrenome">
+        <p></p>
+
+        <label>cpf</label>
+        <input type="text" name="cpf">
+        <p></p>
+
+        <li th:each="professor : ${professores}">
+            <input type="checkbox" name="professores" th:value="${professores.id}" />
+            <label th:text="${item.nomeProfessor}"></label>
+        </li>
+
+        <li th:each="aula : ${aulas}">
+            <input type="checkbox" name="aulas" th:value="${aulas.id}" />
+            <label th:text="${item.titulo}"></label>
+        </li>
+
+        <button type="submit">Salvar</button>
+    </form>
     
 </body>
 </html>
